@@ -67,11 +67,24 @@ function manipulateUrl(url) {
   link.protocol = "https";
   link.host = "newhost.com";
   link.searchParams.set("newParam", "newValue");
-
+//приклад від куратора
+          // if (urlObj.searchParams.has("oldParam")) {
+          //   urlObj.searchParams.delete("oldParam");
+          // }
+	
   link.searchParams.forEach((value, key) =>
-    key === "oldParam" ? link.searchParams.delete(key) : null
-  );
+    key === "oldParam" ? link.searchParams.delete(key) : null );
 
+//Треба було саме так:
+	// Повертаємо об'єкт, який містить різні властивості URL.
+          // return {
+          //   href: urlObj.href, // Повний URL.
+          //   protocol: urlObj.protocol, // Протокол URL.
+          //   host: urlObj.host, // Хост URL.
+          //   pathname: urlObj.pathname, // Шлях URL.
+          //   search: urlObj.search, // Рядок запиту URL.
+          //   params: [...urlObj.searchParams.entries()], // Параметри URL у вигляді масиву пар [ключ, значення].
+          // };
   return link;
 }
 
